@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,6 +40,7 @@ public class UserRegistration extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle  = getIntent().getExtras();
         final String phNumber = bundle.getString("PhNumber");
+        Log.d("phone",phNumber);
         System.out.println("In user registration class "+ phNumber);
 //        mDatabase.child("users").setValue(phNumber);
         GlobalVariables a = (GlobalVariables)getApplication();

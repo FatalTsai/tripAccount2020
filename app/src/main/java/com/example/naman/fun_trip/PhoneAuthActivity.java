@@ -64,12 +64,18 @@ public class PhoneAuthActivity extends AppCompatActivity implements
     private Button mSignOutButton;
 
 
-    String phNumber;
+    String phNumber="0912345678";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone_auth);
+
+        Bundle bundle =new Bundle();
+        bundle.putString("PhNumber",phNumber);
+        Intent intent= new Intent(PhoneAuthActivity.this,UserRegistration.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
 
         // Restore instance state
         if (savedInstanceState != null) {
@@ -239,6 +245,12 @@ public class PhoneAuthActivity extends AppCompatActivity implements
 
     // [START sign_in_with_phone]
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+//        Bundle bundle =new Bundle();
+//        Intent intent= new Intent(PhoneAuthActivity.this,UserRegistration.class);
+//        intent.putExtras(bundle);
+//        startActivity(intent);
+//        return;
+
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
